@@ -6,6 +6,26 @@ defmodule BankOcr.AccountNumber do
   import BankOcr.DigitParser, only: [parse_digit: 1]
 
   @doc """
+  Performs the checksum on an account number. digits is expected to have the format
+  returned by digit_strings_to_digits which is a lenght 9 list of 0-9
+
+  checksum detais:
+    account number:  3  4  5  8  8  2  8  6  5
+    position names:  d9 d8 d7 d6 d5 d4 d3 d2 d1
+    checksum calculation: (d1 + 2*d2 + 3*d3 +..+ 9*d9) mod 11 = 0
+  """
+  def checksum(digits) when length(digits) == 9 do
+    c = calculate_checksum(digits, 9)
+    rem(c, 11) == 0
+  end
+  def checksum(_), do: false # not 9 digits
+
+  defp calculate_checksum([], _), do: 0
+  defp calculate_checksum([d | digits], n) do
+    d*n + calculate_checksum(digits, n-1)
+  end
+
+  @doc """
   digit_strings_to_digits parses a list of digit strings into actual numeric digits.
   A digit_string for input is 3 strings, representing the [top, middle, bottom] of
   the digit, where top, middle, and bottom are each length 3.
