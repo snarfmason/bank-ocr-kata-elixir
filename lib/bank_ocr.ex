@@ -20,7 +20,7 @@ defmodule BankOcr do
     number_string
     |> number_string_to_digit_strings
     |> digit_strings_to_digits
-    |> Enum.join("")
+    |> format_for_display
     |> IO.puts
   end
 end
