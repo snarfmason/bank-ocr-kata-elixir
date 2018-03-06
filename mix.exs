@@ -4,6 +4,7 @@ defmodule BankOcr.MixProject do
   def project do
     [
       app: :bank_ocr,
+      escript: escript_config(),
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
@@ -25,4 +26,6 @@ defmodule BankOcr.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
   end
+
+  defp escript_config, do: [main_module: BankOcr]
 end
