@@ -2,13 +2,11 @@ defmodule BankOcr.AccountNumberTest do
   use ExUnit.Case
 
   import BankOcr.AccountNumber
-  import Enum
 
-  @account_number Enum.join(["    _  _     _  _  _  _  _ ",
-                             "  | _| _||_||_ |_   ||_||_|",
-                             "  ||_  _|  | _||_|  ||_| _|",
-                             ""], # 4th line of the format is a blank line
-                            "\n")
+  @account_number ["    _  _     _  _  _  _  _ \n",
+                   "  | _| _||_||_ |_   ||_||_|\n",
+                   "  ||_  _|  | _||_|  ||_| _|\n",
+                   "\n"] # 4th line of the format is a blank line
 
   @digit_groups [
     ["   ", "  |", "  |"],
