@@ -13,5 +13,6 @@ defmodule BankOcr.DigitParser do
   def parse_digit([" _ ", "|_|", "|_|"]), do: 8
   def parse_digit([" _ ", "|_|", " _|"]), do: 9
   def parse_digit([" _ ", "| |", "|_|"]), do: 0
+  def parse_digit(_), do: nil
 end
 

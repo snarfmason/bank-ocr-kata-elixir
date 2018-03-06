@@ -4,6 +4,7 @@ defmodule BankOcr do
   """
 
   import BankOcr.AccountNumber
+  import BankOcr.AccountNumberDisplay
 
   @doc """
   argv should just be a filename to parse

@@ -6,17 +6,6 @@ defmodule BankOcr.AccountNumber do
   import BankOcr.DigitParser, only: [parse_digit: 1]
 
   @doc """
-  Format a list of digits for display.
-  """
-  def format_for_display(digits) do
-    "#{Enum.join(digits, "")}#{display_suffix(digits)}"
-  end
-
-  defp display_suffix(digits), do: display_suffix(digits, checksum(digits))
-  defp display_suffix(_digits, true), do: ""
-  defp display_suffix(_digits, false), do: " ERR"
-
-  @doc """
   Performs the checksum on an account number. digits is expected to have the format
   returned by digit_strings_to_digits which is a length 9 list of 0-9
 
