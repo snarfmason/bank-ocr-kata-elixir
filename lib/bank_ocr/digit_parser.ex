@@ -1,6 +1,6 @@
 defmodule BankOcr.DigitParser do
   @moduledoc """
-  Parses digts from OCR formatted strings.
+  Parses individual digts from OCR formatted partial strings.
   """
 
   def parse_digit(["   ", "  |", "  |"]), do: 1
