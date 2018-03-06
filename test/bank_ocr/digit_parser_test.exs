@@ -10,4 +10,12 @@ defmodule BankOcr.DigitParserTest do
     
     assert parse_digit(one) == 1
   end
+
+  test "parses a 2" do
+    two = [" _ ",
+           " _|",
+           "|_ "]
+    
+    assert parse_digit(two) == 2
+  end
 end
